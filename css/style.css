@@ -1,0 +1,452 @@
+/* ==========================================================================
+   X9 — TUILs samfunnsplattform
+   Felles stilark for alle fem sider.
+   Tokens: navy (hovedfarge, låst), hvit (bakgrunn, låst), aurora-turkis (aksent).
+   Type: Fraunces (display) + Public Sans (brødtekst/UI).
+   ========================================================================== */
+
+:root{
+  /* -- Farger -------------------------------------------------------- */
+  --navy-950:#0a1830;   /* dypeste navy — footer, CTA-bånd */
+  --navy-800:#0f2347;
+  --navy-700:#14335e;   /* primær merkefarge — knapper, lenker, logo */
+  --navy-600:#1c4272;   /* hover/aktiv-variant av navy-700 */
+  --white:#ffffff;
+  --mist:#f3f6fa;       /* lyst blågrått — annenhver seksjonsbakgrunn */
+  --ink:#101826;        /* brødtekst på lys bakgrunn */
+  --muted:#5b6675;      /* sekundærtekst */
+  --line:rgba(16,24,38,0.10);
+  --line-on-dark:rgba(255,255,255,0.16);
+
+  /* Aksent: nordlys-turkis. Foreslått midlertidig farge — sett inn TUILs
+     offisielle aksentfarge her når den er bestemt (én variabel å endre). */
+  --accent:#20c9a0;
+  --accent-dim:rgba(32,201,160,0.22);
+
+  /* -- Typografi ------------------------------------------------------ */
+  --ff-display:"Fraunces", Georgia, serif;
+  --ff-body:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+  /* -- Layout ----------------------------------------------------------- */
+  --container:1240px;
+  --pad-inline:clamp(20px, 5vw, 64px);
+  --pad-section:clamp(64px, 10vw, 140px);
+  --radius:10px;
+  --radius-pill:999px;
+  --header-h:76px;
+}
+
+/* -- Reset ---------------------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+body{
+  margin:0;
+  font-family:var(--ff-body);
+  font-size:17px;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+h1,h2,h3{
+  font-family:var(--ff-display);
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  margin:0;
+}
+
+p{margin:0;}
+ul{list-style:none;margin:0;padding:0;}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+button{font-family:inherit;font-size:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0;}
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;
+  background:var(--navy-700);color:var(--white);
+  padding:14px 22px;z-index:300;border-radius:0 0 8px 0;
+  font-weight:600;
+}
+.skip-link:focus{left:0;}
+
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.container{
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--pad-inline);
+}
+
+.visually-hidden{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* -- Knapper ---------------------------------------------------------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 32px;
+  border-radius:var(--radius-pill);
+  font-family:var(--ff-body);font-weight:600;font-size:0.98rem;
+  border:1.5px solid transparent;
+  transition:transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--navy-700);color:var(--white);}
+.btn-primary:hover{background:var(--navy-600);}
+.btn-on-dark{background:var(--white);color:var(--navy-800);}
+.btn-on-dark:hover{background:var(--mist);}
+.btn-outline-on-dark{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.4);}
+.btn-outline-on-dark:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ==========================================================================
+   Logomerke — inline SVG, midlertidig ordmerke inntil offisielle
+   logofiler er levert. "9"-buen er tegnet som en fotballbanes midtsirkel.
+   ========================================================================== */
+.logomark{display:inline-flex;align-items:center;gap:10px;}
+.logomark svg{width:34px;height:34px;flex-shrink:0;}
+.logomark .ring{fill:none;stroke:currentColor;stroke-width:2;}
+.logomark .arc{
+  fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;
+  stroke-dasharray:26;stroke-dashoffset:26;
+  animation:draw-arc 1s ease-out .25s forwards;
+}
+@keyframes draw-arc{to{stroke-dashoffset:0;}}
+@media (prefers-reduced-motion:reduce){
+  .logomark .arc{animation:none;stroke-dashoffset:0;}
+}
+.logomark .wordmark{
+  font-family:var(--ff-display);font-weight:600;font-size:1.28rem;
+  letter-spacing:-0.01em;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--header-h);
+  display:flex;align-items:center;
+  background:transparent;
+  transition:background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header .logomark{color:var(--white);}
+.site-header .logomark .ring{stroke:rgba(255,255,255,0.55);}
+.site-header .logomark .arc{stroke:var(--accent);}
+
+.header-inner{
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;
+}
+
+.primary-nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);}
+.nav-links{display:flex;align-items:center;gap:clamp(16px,2vw,30px);}
+.nav-links a{
+  font-weight:600;font-size:0.95rem;color:var(--white);
+  padding-block:8px;border-bottom:1.5px solid transparent;
+  transition:border-color .18s ease, opacity .18s ease;
+}
+.nav-links a:hover{border-color:var(--accent);}
+.nav-links a[aria-current="page"]{border-color:var(--accent);}
+
+.nav-cta{background:var(--white);color:var(--navy-800);}
+.nav-cta:hover{background:var(--mist);}
+.site-header.is-solid .nav-cta{background:var(--navy-700);color:var(--white);}
+.site-header.is-solid .nav-cta:hover{background:var(--navy-600);}
+
+.menu-toggle{
+  display:none;
+  width:44px;height:44px;
+  align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,0.4);border-radius:8px;
+  color:var(--white);
+}
+.menu-toggle .bars{display:block;width:18px;height:2px;background:currentColor;position:relative;}
+.menu-toggle .bars::before,.menu-toggle .bars::after{
+  content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;
+}
+.menu-toggle .bars::before{top:-6px;}
+.menu-toggle .bars::after{top:6px;}
+
+.mobile-panel{
+  display:none;
+  position:fixed;top:var(--header-h);left:0;right:0;bottom:0;z-index:190;
+  background:var(--navy-800);
+  padding:28px var(--pad-inline) 40px;
+  flex-direction:column;gap:22px;
+  overflow-y:auto;
+}
+.mobile-panel.is-open{display:flex;}
+.mobile-panel a{
+  font-family:var(--ff-display);font-weight:600;font-size:1.6rem;color:var(--white);
+}
+.mobile-panel a[aria-current="page"]{color:var(--accent);}
+.mobile-panel a.btn{
+  margin-top:8px;align-self:flex-start;
+  font-family:var(--ff-body);font-size:0.98rem;
+}
+.mobile-panel a.btn-on-dark{color:var(--navy-800);}
+
+/* Solid header state — added by JS once hero has scrolled out of view */
+.site-header.is-solid{
+  background:rgba(255,255,255,0.94);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom-color:var(--line);
+}
+.site-header.is-solid .logomark{color:var(--navy-800);}
+.site-header.is-solid .logomark .ring{stroke:var(--line-strong,rgba(16,24,38,0.28));}
+.site-header.is-solid .nav-links a{color:var(--ink);}
+.site-header.is-solid .menu-toggle{border-color:rgba(16,24,38,0.22);color:var(--navy-800);}
+
+@media (max-width:899px){
+  .nav-links{display:none;}
+  .primary-nav .btn{display:none;}
+  .menu-toggle{display:flex;}
+}
+
+/* ==========================================================================
+   Foto-plassholder — brukes der ekte bilder ikke er levert ennå.
+   Nordlys/navy-preget stemning i stedet for en tom, "ødelagt" boks.
+   Byttes med <img class="photo ..."> når filene foreligger.
+   ========================================================================== */
+.photo-slot{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 140% at 15% 10%, rgba(32,201,160,0.16), transparent 55%),
+    linear-gradient(160deg, var(--navy-950) 0%, var(--navy-700) 100%);
+}
+.photo-slot::before{
+  /* Svakt "nordlys"-mønster — dekorativt, tar plassen inntil ekte foto er klart. */
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(60% 80% at 80% 0%, rgba(32,201,160,0.20), transparent 60%),
+    radial-gradient(50% 60% at 40% 100%, rgba(20,51,94,0.5), transparent 70%);
+  mix-blend-mode:screen;
+}
+.photo-slot .brief{
+  position:absolute;left:20px;bottom:20px;right:20px;
+  max-width:34ch;
+  font-size:0.78rem;line-height:1.5;color:rgba(255,255,255,0.7);
+  background:rgba(10,24,48,0.55);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:8px;
+  padding:12px 14px;
+  backdrop-filter:blur(6px);
+}
+.photo-slot .brief strong{
+  display:block;color:var(--white);font-weight:600;font-size:0.72rem;
+  letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;
+}
+.photo-slot--hero{min-height:100svh;}
+.photo-slot--hero .brief{
+  top:calc(var(--header-h) + 20px);bottom:auto;
+}
+.photo-slot--wide{min-height:60vh;}
+
+.photo{
+  display:block;width:100%;object-fit:cover;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{
+  position:relative;
+  display:flex;align-items:flex-end;
+  min-height:100svh;
+  color:var(--white);
+}
+.hero .photo-slot{
+  position:absolute;inset:0;z-index:0;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  width:100%;
+  padding-top:clamp(40px, 8vw, 96px);
+  padding-bottom:clamp(92px, 15vw, 140px);
+}
+.hero .eyebrow{
+  display:block;
+  font-family:var(--ff-body);font-weight:600;font-size:0.8rem;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(3.4rem, 13vw, 7.5rem);
+  display:flex;flex-direction:column;gap:0;
+}
+.hero h1 .line-2{
+  font-family:var(--ff-body);
+  font-size:clamp(1.15rem, 3.6vw, 2rem);
+  font-weight:500;letter-spacing:0;
+  margin-top:clamp(10px,2vw,18px);
+  color:rgba(255,255,255,0.88);
+}
+.scroll-cue{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.75);
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+}
+.scroll-cue svg{width:16px;height:16px;animation:bob 2.2s ease-in-out infinite;}
+@keyframes bob{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(6px);}
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-cue svg{animation:none;}
+}
+
+/* ==========================================================================
+   Seksjoner — generelt
+   ========================================================================== */
+.section{padding-block:var(--pad-section);}
+.section--mist{background:var(--mist);}
+
+/* Overskrift 2 — ren tekst, ingen brødtekst, med et svakt "9"-vannmerke */
+.statement{
+  position:relative;
+  text-align:center;
+  max-width:920px;
+  margin-inline:auto;
+}
+.statement h2{
+  position:relative;z-index:1;
+  font-size:clamp(1.9rem, 5.4vw, 3.4rem);
+  color:var(--navy-800);
+}
+.statement .ghost-nine{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:clamp(280px, 46vw, 640px);
+  color:var(--navy-700);
+  opacity:0.05;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Bilde 2 + overskrift 3 */
+.wide-image-block{}
+.wide-image-block .caption{
+  padding-top:clamp(28px,4vw,44px);
+  text-align:center;
+}
+.wide-image-block h2{
+  font-size:clamp(1.6rem, 3.6vw, 2.5rem);
+  max-width:22ch;margin-inline:auto;
+  color:var(--navy-800);
+}
+
+/* -- Pilar-strip ------------------------------------------------------------ */
+.pillar-strip{
+  display:flex;flex-direction:column;
+}
+.pillar-strip li{border-top:1px solid var(--line);}
+.pillar-strip li:last-child{border-bottom:1px solid var(--line);}
+.pillar-strip a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-block:22px;
+  font-family:var(--ff-display);font-weight:600;
+  font-size:clamp(1.3rem, 3vw, 1.8rem);
+  color:var(--navy-800);
+  transition:color .18s ease, padding-left .18s ease;
+}
+.pillar-strip a svg{
+  width:20px;height:20px;flex-shrink:0;
+  color:var(--muted);
+  transition:transform .18s ease, color .18s ease;
+}
+.pillar-strip a:hover{color:var(--navy-600);padding-left:8px;}
+.pillar-strip a:hover svg{transform:translateX(4px);color:var(--accent);}
+
+@media (min-width:900px){
+  .pillar-strip{flex-direction:row;flex-wrap:wrap;}
+  .pillar-strip li{
+    border-top:none !important;border-bottom:none !important;
+    flex:1 1 auto;
+    border-right:1px solid var(--line);
+  }
+  .pillar-strip li:last-child{border-right:none;}
+  .pillar-strip a{
+    flex-direction:column;align-items:flex-start;gap:14px;
+    padding:8px 24px 8px 0;
+    font-size:clamp(1.1rem,1.7vw,1.4rem);
+  }
+  .pillar-strip a svg{order:2;}
+  .pillar-strip a:hover{padding-left:0;padding-bottom:0;}
+}
+
+/* -- CTA-bånd ---------------------------------------------------------------- */
+.cta-band{
+  position:relative;
+  background:linear-gradient(160deg, var(--navy-950) 0%, var(--navy-800) 100%);
+  color:var(--white);
+  text-align:center;
+  overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 70% at 85% 15%, rgba(32,201,160,0.20), transparent 60%);
+  pointer-events:none;
+}
+.cta-band .container{position:relative;z-index:1;}
+.cta-band h2{
+  font-size:clamp(1.9rem, 4.4vw, 3rem);
+  max-width:18ch;margin-inline:auto;
+}
+.cta-band .btn{margin-top:36px;padding-inline:44px;}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer{
+  background:var(--navy-950);color:rgba(255,255,255,0.78);
+  padding-block:52px 32px;
+}
+.footer-top{
+  display:flex;flex-wrap:wrap;gap:28px;
+  justify-content:space-between;align-items:flex-start;
+  padding-bottom:32px;border-bottom:1px solid var(--line-on-dark);
+}
+.footer-top .logomark{color:var(--white);}
+.footer-top .logomark .ring{stroke:rgba(255,255,255,0.4);}
+.footer-nav{display:flex;flex-wrap:wrap;gap:12px 26px;}
+.footer-nav a{font-size:0.92rem;font-weight:500;}
+.footer-nav a:hover{color:var(--accent);}
+.footer-bottom{
+  padding-top:24px;
+  font-size:0.85rem;color:rgba(255,255,255,0.6);
+}
+.footer-bottom p{max-width:70ch;}
+
+/* -- Reveal on load (respects reduced motion) -------------------------------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.is-visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;}
+}
