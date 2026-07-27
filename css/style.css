@@ -266,7 +266,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .photo-slot--wide{min-height:60vh;}
 
 .photo{
-  display:block;width:100%;object-fit:cover;
+  display:block;width:100%;height:100%;object-fit:cover;
+}
+
+/* Ekte bilde i hero — samme mørke gradient som photo-slot simulerte, for lesbar hvit tekst */
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+  overflow:hidden;
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(10,24,48,0.30) 0%, rgba(10,24,48,0.22) 45%, rgba(10,24,48,0.82) 100%);
+}
+
+/* Ekte bilde i full bredde (seksjon 3) — ingen tekst-overlegg, se figur under */
+.wide-photo{
+  width:100%;overflow:hidden;background:var(--mist);
+  aspect-ratio:16/9;
+}
+@media (min-width:900px){
+  .wide-photo{aspect-ratio:21/9;}
 }
 
 /* ==========================================================================
