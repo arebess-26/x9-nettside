@@ -651,6 +651,50 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .field textarea{min-height:120px;resize:vertical;}
 .form-note{font-size:0.82rem;color:var(--muted);margin-top:14px;}
 
+/* Video-fasade — laster kun YouTube-iframen når noen faktisk klikker,
+   så siden ikke drar med seg tredjeparts-script/cookies gratis. */
+.video-facade{
+  position:relative;width:100%;aspect-ratio:16/9;
+  border-radius:var(--radius);overflow:hidden;
+  cursor:pointer;background:var(--navy-950);
+}
+.video-facade img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .3s ease;
+}
+.video-facade:hover img{transform:scale(1.02);}
+.video-facade::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(10,24,48,0.05) 0%, rgba(10,24,48,0.7) 100%);
+}
+.video-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(56px,8vw,76px);height:clamp(56px,8vw,76px);border-radius:50%;
+  background:rgba(255,255,255,0.95);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  transition:transform .18s ease, background-color .18s ease;
+  z-index:2;
+}
+.video-play svg{width:34%;height:34%;color:var(--navy-800);margin-left:3px;}
+.video-facade:hover .video-play{transform:translate(-50%,-50%) scale(1.08);background:var(--white);}
+.video-facade:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.video-caption{
+  position:absolute;left:20px;bottom:16px;right:20px;z-index:2;
+  color:var(--white);font-weight:600;font-size:0.98rem;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.video-duration{
+  font-weight:500;font-size:0.78rem;color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.4);border-radius:999px;padding:2px 10px;
+}
+.video-facade iframe{width:100%;height:100%;border:0;display:block;position:relative;z-index:3;}
+.video-facade.is-playing{cursor:default;}
+.video-facade.is-playing .video-play,
+.video-facade.is-playing .video-caption,
+.video-facade.is-playing img{display:none;}
+.video-facade.is-playing::after{display:none;}
+
 /* -- Reveal on load (respects reduced motion) -------------------------------- */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.is-visible{opacity:1;transform:none;}
