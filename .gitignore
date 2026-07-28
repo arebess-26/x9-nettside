@@ -13,3 +13,10 @@ Thumbs.db
 
 # Env / secrets
 .env
+
+# Ubrukte originalbilder — erstattet av web-optimaliserte versjoner.
+# SmugMug er det egentlige arkivet, så disse holdes lokalt men ikke i git.
+Bilder/Arrangement.jpg
+Bilder/Event TL.jpg
+Bilder/Jentekamp.jpg
+Bilder/TUIL Treningssenter.jpg

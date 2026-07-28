@@ -498,6 +498,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .split{grid-template-columns:0.9fr 1.1fr;align-items:start;}
 }
 .split h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--navy-800);}
+
+/* Foto i venstre kolonne av en .split — brukes på Om TUIL og pilar-seksjonene */
+.split-photo{
+  margin-top:20px;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:4/5;background:var(--mist);
+}
+.split-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .lede{font-size:1.05rem;line-height:1.75;max-width:65ch;color:var(--ink);}
 .lede + .lede{margin-top:16px;}
 .section--mist .lede{color:var(--ink);}
