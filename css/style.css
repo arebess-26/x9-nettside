@@ -2,7 +2,8 @@
    X9 — TUILs samfunnsplattform
    Felles stilark for alle fem sider.
    Tokens: navy (hovedfarge, låst), hvit (bakgrunn, låst), aurora-turkis (aksent).
-   Type: Fraunces (display) + Public Sans (brødtekst/UI).
+   Type: IBM Plex Sans (display + brødtekst/UI), IBM Plex Sans Condensed
+   for tette taller (X9-badge, 1:9-regnestykket, store tall).
    ========================================================================== */
 
 :root{
@@ -24,8 +25,9 @@
   --accent-dim:rgba(32,201,160,0.22);
 
   /* -- Typografi ------------------------------------------------------ */
-  --ff-display:"Fraunces", Georgia, serif;
-  --ff-body:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --ff-display:"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --ff-body:"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --ff-condensed:"IBM Plex Sans Condensed", "IBM Plex Sans", Arial, sans-serif;
 
   /* -- Layout ----------------------------------------------------------- */
   --container:1240px;
@@ -159,8 +161,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   gap:24px;
 }
 
-.primary-nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);}
-.nav-links{display:flex;align-items:center;gap:clamp(16px,2vw,30px);}
+.primary-nav{display:flex;align-items:center;gap:clamp(14px,1.8vw,28px);}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);}
 .nav-links a{
   font-weight:600;font-size:0.95rem;color:var(--white);
   padding-block:8px;border-bottom:1.5px solid transparent;
@@ -168,11 +170,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .nav-links a:hover{border-color:var(--accent);}
 .nav-links a[aria-current="page"]{border-color:var(--accent);}
-
-.nav-cta{background:var(--white);color:var(--navy-800);}
-.nav-cta:hover{background:var(--mist);}
-.site-header.is-solid .nav-cta{background:var(--navy-700);color:var(--white);}
-.site-header.is-solid .nav-cta:hover{background:var(--navy-600);}
 
 .menu-toggle{
   display:none;
@@ -201,11 +198,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-family:var(--ff-display);font-weight:600;font-size:1.6rem;color:var(--white);
 }
 .mobile-panel a[aria-current="page"]{color:var(--accent);}
-.mobile-panel a.btn{
-  margin-top:8px;align-self:flex-start;
-  font-family:var(--ff-body);font-size:0.98rem;
-}
-.mobile-panel a.btn-on-dark{color:var(--navy-800);}
 
 /* Solid header state — added by JS once hero has scrolled out of view */
 .site-header.is-solid{
@@ -220,7 +212,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 @media (max-width:899px){
   .nav-links{display:none;}
-  .primary-nav .btn{display:none;}
   .menu-toggle{display:flex;}
 }
 
@@ -326,8 +317,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border-radius:50%;
   background:var(--white);
   color:var(--ink);
-  font-family:var(--ff-display);
-  font-weight:700;letter-spacing:-0.02em;
+  font-family:var(--ff-condensed);
+  font-weight:700;letter-spacing:-0.01em;
   font-size:clamp(2.6rem, 7.2vw, 5.5rem);
   box-shadow:0 14px 36px rgba(0,0,0,0.35);
   flex-shrink:0;
@@ -536,7 +527,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (min-width:640px){.stat-grid{grid-template-columns:repeat(3,1fr);}}
 .stat{text-align:center;}
 .stat .figure{
-  font-family:var(--ff-display);font-weight:700;
+  font-family:var(--ff-condensed);font-weight:700;
   font-size:clamp(2.4rem,5.2vw,3.6rem);color:var(--navy-700);
 }
 .stat .label{margin-top:8px;font-size:0.92rem;color:var(--muted);font-weight:500;}
@@ -563,7 +554,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .ratio-figures{
   display:flex;align-items:baseline;gap:14px;
-  font-family:var(--ff-display);margin-bottom:24px;
+  font-family:var(--ff-condensed);margin-bottom:24px;
 }
 .ratio-figures .num{font-size:clamp(3rem,7vw,4.5rem);font-weight:700;}
 .ratio-figures .num.accent{color:var(--accent);}
@@ -589,7 +580,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   text-align:center;
 }
 .kpi-tile .figure{
-  font-family:var(--ff-display);font-weight:700;
+  font-family:var(--ff-condensed);font-weight:700;
   font-size:clamp(2.6rem,5.5vw,4rem);color:var(--navy-700);
 }
 .kpi-tile .label{margin-top:10px;font-size:0.95rem;color:var(--muted);font-weight:500;}
@@ -630,7 +621,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   display:flex;flex-direction:column;gap:14px;
 }
 .tier h3{font-size:1.15rem;color:var(--navy-800);}
-.tier .price{font-family:var(--ff-display);font-weight:700;font-size:1.4rem;color:var(--navy-700);}
+.tier .price{font-family:var(--ff-condensed);font-weight:700;font-size:1.4rem;color:var(--navy-700);}
 .tier .desc{color:var(--muted);font-size:0.95rem;}
 .tier .btn{margin-top:auto;align-self:flex-start;}
 .tier--featured{background:var(--navy-950);color:var(--white);border-color:var(--navy-950);}
