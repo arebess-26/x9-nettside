@@ -59,6 +59,16 @@ document.querySelectorAll('[data-year]').forEach(function(el){
   el.textContent = new Date().getFullYear();
 });
 
+// KPI-rapportens "sist oppdatert"-dato
+(function(){
+  var els = document.querySelectorAll('[data-updated]');
+  if(!els.length) return;
+  var months = ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'];
+  var d = new Date();
+  var text = d.getDate() + '. ' + months[d.getMonth()] + ' ' + d.getFullYear();
+  els.forEach(function(el){ el.textContent = text; });
+})();
+
 // Video-fasade — laster YouTube-iframen først når noen klikker/trykker Enter
 (function(){
   document.querySelectorAll('.video-facade').forEach(function(el){

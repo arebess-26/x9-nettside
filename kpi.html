@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KPI – slik måler X9 effekt</title>
+<title>TUIL tall – slik måler X9 effekt</title>
 <meta name="description" content="Vi organiserer ikke bare aktivitet – vi måler effekt. Se tallene bak X9: frivillig verdi, aktivitet og samfunnseffekt i Tromsdalen.">
-<meta property="og:title" content="KPI – slik måler X9 effekt">
+<meta property="og:title" content="TUIL tall – slik måler X9 effekt">
 <meta property="og:description" content="Vi organiserer ikke bare aktivitet – vi måler effekt. Se tallene bak X9: frivillig verdi, aktivitet og samfunnseffekt i Tromsdalen.">
 <meta property="og:type" content="website">
 <!-- og:image ikke spesifisert i innholdsfila for denne siden ennå -->
@@ -34,7 +34,7 @@
         <a href="/">Forside</a>
         <a href="/om-tuil">Om TUIL</a>
         <a href="/hvorfor">Hvorfor samfunnsplattform?</a>
-        <a href="/kpi" aria-current="page">KPI</a>
+        <a href="/kpi" aria-current="page">TUIL tall</a>
         <a href="/bli-med">Bli med</a>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åpne meny">
@@ -47,7 +47,7 @@
     <a href="/">Forside</a>
     <a href="/om-tuil">Om TUIL</a>
     <a href="/hvorfor">Hvorfor samfunnsplattform?</a>
-    <a href="/kpi" aria-current="page">KPI</a>
+    <a href="/kpi" aria-current="page">TUIL tall</a>
     <a href="/bli-med">Bli med</a>
   </div>
 </header>
@@ -57,7 +57,7 @@
   <!-- ============ SEKSJON 1 — Intro ============ -->
   <section class="page-intro">
     <div class="container">
-      <p class="eyebrow">KPI</p>
+      <p class="eyebrow">TUIL tall</p>
       <h1 class="reveal">Vi måler effekt. Her er tallene.</h1>
       <p class="reveal">Løfter er lette å gi. Derfor bygger X9 på det motsatte: alt vi sier, skal kunne måles – og tallene deler vi åpent. Dette er dagens status.</p>
     </div>
@@ -66,86 +66,105 @@
   <!-- ============ SEKSJON 2 — Dagens tall ============ -->
   <section class="section" id="tallene">
     <div class="container">
-      <div class="kpi-grid">
-        <div class="kpi-tile reveal">
-          <div class="figure">1 : 9</div>
-          <div class="label">hver investert krone gir ni kroner i samfunnsverdi</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">9,7 MNOK</div>
-          <div class="label">verdien av frivillig innsats hvert år</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">1 729</div>
-          <div class="label">medlemmer i idrettene</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">750</div>
-          <div class="label">medlemmer på TUIL Treningssenter — 7 av 10 er nye til TUIL</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">500+ MNOK</div>
-          <div class="label">investert i Tromsdalen sammen med partnere</div>
-        </div>
-        <!--
-          Byggenotat (x9-innhold-kpi): rader med [X] bygges ferdig i koden, men holdes
-          skjult til tallene er bekreftet. Fjern kommentartegnene når verdiene foreligger.
+      <div class="report-meta reveal">
+        <span><strong>Nullpunktår:</strong> 2025</span>
+        <span><strong>Neste rapportering:</strong> år 1, klar om kort tid</span>
+        <span><strong>Sist oppdatert:</strong> <span data-updated></span></span>
+      </div>
 
-        <div class="kpi-tile reveal">
-          <div class="figure">[X] timer</div>
-          <div class="label">aktivitetstimer, innendørs og utendørs fotball</div>
+      <div class="headline-figure reveal">
+        <div class="figure">1 : 9</div>
+        <div class="label">kroner i samfunnsverdi per krone investert</div>
+        <div class="sub">Trappes mot 1:15 — se ambisjonen lenger ned</div>
+      </div>
+
+      <div class="report reveal">
+
+        <div class="report-group">
+          <div class="report-group-title">Samfunnsverdi</div>
+          <div class="report-row">
+            <div class="report-row-label">Frivillig innsats, beregnet verdi</div>
+            <div class="report-row-value">9,7 MNOK</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Investert i Tromsdalen sammen med partnere</div>
+            <div class="report-row-value">500+ MNOK</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Beregnet helse- og samfunnsverdi</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Beregnet direkte inntekter</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Beregnet indirekte inntekter</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
         </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X] timer</div>
-          <div class="label">aktivitetstimer, turnhallen</div>
+
+        <div class="report-group">
+          <div class="report-group-title">Medlemskap</div>
+          <div class="report-row">
+            <div class="report-row-label">Medlemmer i idrettene</div>
+            <div class="report-row-value">1 729</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Medlemmer på TUIL Treningssenter<span class="report-sub">7 av 10 er nye til TUIL</span></div>
+            <div class="report-row-value">750</div>
+          </div>
         </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X] %</div>
-          <div class="label">belegg i konferansesalen</div>
+
+        <div class="report-group">
+          <div class="report-group-title">Aktivitet og bruk</div>
+          <div class="report-row">
+            <div class="report-row-label">Brukstimer hall — fotball (innendørs og utendørs)</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Brukstimer hall — turn</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Brukstimer hall — eksterne brukere<span class="report-sub">Skole, lag og andre</span></div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
         </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X] timer</div>
-          <div class="label">anleggstimer til eksterne leietakere</div>
+
+        <div class="report-group">
+          <div class="report-group-title">Frivillighet</div>
+          <div class="report-row">
+            <div class="report-row-label">Antall frivillige</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Antall frivilligtimer</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
         </div>
-        -->
+
+        <div class="report-group">
+          <div class="report-group-title">Reiseliv — Tromsø Lodge &amp; Camping</div>
+          <div class="report-row">
+            <div class="report-row-label">Tripadvisor-vurdering</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Booking.com-vurdering</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+          <div class="report-row">
+            <div class="report-row-label">Belegg siste år</div>
+            <div class="report-row-value is-pending">Nullpunkt klargjøres</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!--
-    Byggenotat (x9-innhold-kpi): hele denne seksjonen er [X] — pilarnavn 1–3 og alle
-    verdier, inkl. bærekraft-indeksen, mangler ennå. Bygges ferdig i koden her, men
-    holdes skjult til innholdet er bekreftet. Fjern kommentartegnene når klart.
-
-  <section class="section section--mist" id="pilarer-malt">
-    <div class="container">
-      <div class="reveal" style="max-width:760px;">
-        <h2>De fire målbare pilarene</h2>
-        <p class="lede" style="margin-top:16px;">Hver pilar vises med navn, hva som måles, og dagens verdi.</p>
-      </div>
-      <div class="kpi-grid">
-        <div class="kpi-tile reveal">
-          <div class="figure">[X]</div>
-          <div class="label">[Pilar 1 – navn] — måler: [X]</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X]</div>
-          <div class="label">[Pilar 2 – navn] — måler: [X]</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X]</div>
-          <div class="label">[Pilar 3 – navn] — måler: [X]</div>
-        </div>
-        <div class="kpi-tile reveal">
-          <div class="figure">[X]</div>
-          <div class="label">Bærekraft-indeksen (utviklet med Hedcoach) — måler: [X hva indeksen konkret måler]</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- ============ SEKSJON 4 — Rapportering til partnere ============ -->
+  <!-- ============ SEKSJON 3 — Rapportering til partnere ============ -->
   <section class="section" id="rapportering">
     <div class="container split">
       <div class="reveal">
@@ -155,7 +174,7 @@
     </div>
   </section>
 
-  <!-- ============ SEKSJON 5 — Ambisjonen ============ -->
+  <!-- ============ SEKSJON 4 — Ambisjonen ============ -->
   <section class="section section--mist" id="ambisjonen">
     <div class="container">
       <div class="statement reveal">
@@ -165,7 +184,7 @@
     </div>
   </section>
 
-  <!-- ============ SEKSJON 6 — CTA ============ -->
+  <!-- ============ SEKSJON 5 — CTA ============ -->
   <section class="cta-band" id="cta">
     <div class="container">
       <h2 class="reveal">Vil du investere i noe som kan måles?</h2>
@@ -188,7 +207,7 @@
         <a href="/">Forside</a>
         <a href="/om-tuil">Om TUIL</a>
         <a href="/hvorfor">Hvorfor samfunnsplattform?</a>
-        <a href="/kpi">KPI</a>
+        <a href="/kpi">TUIL tall</a>
         <a href="/bli-med">Bli med</a>
       </nav>
     </div>
