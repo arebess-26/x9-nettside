@@ -437,6 +437,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   color:var(--white);
   text-align:center;
   overflow:hidden;
+  padding-block:clamp(32px,5vw,56px);
 }
 .cta-band::before{
   content:"";position:absolute;inset:0;
@@ -445,10 +446,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .cta-band .container{position:relative;z-index:1;}
 .cta-band h2{
-  font-size:clamp(1.9rem, 4.4vw, 3rem);
-  max-width:18ch;margin-inline:auto;
+  font-size:clamp(1.4rem, 2.6vw, 1.9rem);
+  max-width:24ch;margin-inline:auto;
 }
-.cta-band .btn{margin-top:36px;padding-inline:44px;}
+.cta-band .btn{margin-top:20px;padding-inline:36px;}
 
 /* ==========================================================================
    Footer
