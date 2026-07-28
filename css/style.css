@@ -497,6 +497,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .split{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,48px);}
 @media (min-width:900px){
   .split{grid-template-columns:0.9fr 1.1fr;align-items:start;}
+  .pillar-detail .split{align-items:center;}
 }
 .split h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--navy-800);}
 
