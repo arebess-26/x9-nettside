@@ -592,6 +592,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .headline-figure .label{margin-top:8px;font-size:1.02rem;color:var(--ink);}
 .headline-figure .sub{margin-top:4px;font-size:0.85rem;color:var(--muted);}
+.headline-figure--top .figure{font-size:clamp(2.6rem,6vw,4rem);}
+
+/* Verdi-nedbrytning — tre tall på rad rett under totalsummen */
+.value-breakdown{
+  display:grid;grid-template-columns:1fr;gap:24px;
+  margin-bottom:clamp(40px,5vw,56px);
+  padding-block:clamp(24px,3vw,32px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+@media (min-width:640px){
+  .value-breakdown{grid-template-columns:repeat(3,1fr);gap:0;}
+}
+.value-item{text-align:center;padding-inline:16px;}
+@media (min-width:640px){
+  .value-item + .value-item{border-left:1px solid var(--line);}
+}
+.value-item .figure{
+  font-family:var(--ff-condensed);font-weight:700;
+  font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy-700);
+}
+.value-item .label{margin-top:6px;font-size:0.85rem;color:var(--muted);}
 
 .report{
   border:1px solid var(--line);border-radius:8px;
