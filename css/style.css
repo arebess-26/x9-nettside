@@ -511,6 +511,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lede + .lede{margin-top:16px;}
 .section--mist .lede{color:var(--ink);}
 
+/* De fem pilarene — utdypende seksjon på /hvorfor */
+.pillar-detail{padding-block:clamp(28px,3.5vw,40px);scroll-margin-top:calc(var(--header-h) + 16px);}
+.pillar-detail + .pillar-detail{border-top:1px solid var(--line);}
+.pillar-index{
+  display:inline-block;font-family:var(--ff-body);font-weight:600;font-size:0.85rem;
+  letter-spacing:0.08em;color:var(--accent);margin-bottom:10px;
+}
+.pillar-detail h3{font-size:1.6rem;color:var(--navy-800);margin-top:2px;}
+.pillar-points{margin-top:20px;display:flex;flex-direction:column;gap:14px;}
+.pillar-points li{
+  padding-left:22px;position:relative;color:var(--ink);font-size:0.98rem;line-height:1.65;
+}
+.pillar-points li::before{
+  content:"";position:absolute;left:0;top:0.6em;width:10px;height:2px;background:var(--accent);
+}
+.pillar-points strong{color:var(--navy-800);font-weight:600;}
+
 /* Store tall — brukes på Om TUIL og KPI */
 .stat-grid{
   display:grid;grid-template-columns:1fr;gap:28px;
