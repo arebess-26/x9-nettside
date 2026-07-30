@@ -492,12 +492,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .page-intro h1{font-size:clamp(2.2rem,5vw,3.6rem);max-width:22ch;}
 .page-intro p{margin-top:20px;font-size:1.05rem;color:rgba(255,255,255,0.82);max-width:60ch;}
 .page-intro .fineprint{text-align:left;color:rgba(255,255,255,0.55);margin-top:24px;}
+.page-intro .ingress{
+  font-weight:700;font-size:clamp(1.15rem,2.4vw,1.4rem);
+  color:var(--white);max-width:44ch;
+  margin-top:32px;
+}
+.page-intro p.ingress + p{margin-top:16px;}
 
 /* To-kolonne editorial layout: overskrift/eyebrow til venstre, brødtekst til høyre */
 .split{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,48px);}
 @media (min-width:900px){
   .split{grid-template-columns:0.9fr 1.1fr;align-items:start;}
-  .pillar-detail .split{align-items:center;}
+  .pillar-detail .split,
+  #idretter .split{align-items:center;}
 }
 .split h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--navy-800);}
 
@@ -592,7 +599,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .headline-figure .label{margin-top:8px;font-size:1.02rem;color:var(--ink);}
 .headline-figure .sub{margin-top:4px;font-size:0.85rem;color:var(--muted);}
-.headline-figure--top .figure{font-size:clamp(2.6rem,6vw,4rem);}
+.headline-figure--compact .figure{font-size:clamp(2.6rem,6vw,4rem);}
 
 /* Verdi-nedbrytning — tre tall på rad rett under totalsummen */
 .value-breakdown{
